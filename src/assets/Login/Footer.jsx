@@ -7,7 +7,6 @@ const Footer = () => {
     <footer className="bg-white text-black py-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* About Us */}
           <div>
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
             <p className="text-sm text-gray-600">
@@ -17,7 +16,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="text-sm text-gray-600">
@@ -92,7 +90,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="border-t border-gray-300 mt-8 pt-8 text-center text-sm text-gray-600">
           <p>
             &copy; {new Date().getFullYear()} Vogue Vault. All Rights
