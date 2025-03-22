@@ -10,7 +10,7 @@ export const regval= yup.object({
     .matches(/[@$%&*!]/,'must include a special charecter')
     .required('password is required'),
     confirmpassword:yup.string()
-    .oneOf([yup.ref('password')],'password matches')
+    .oneOf([yup.ref('password')],'password must matches')
     .required('confirmpassword is required')
 })
 

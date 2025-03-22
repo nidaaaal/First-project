@@ -4,13 +4,155 @@
       "id": "2791",
       "username": "nidal",
       "email": "nidalcheruvadi@gmail.com",
-      "password": "Nidal@123"
+      "password": "Nidal@123",
+      "cart":[
+        {
+
+        }
+      ]
+      
     },
     {
       "id": "cb79",
       "username": "lisna",
       "email": "lisnakt60@gmail.com",
-      "password": "Lisna@123"
+      "password": "Lisna@123",
+      "cart":[
+        {
+          
+        }
+      ]
+    },
+    {
+      "id": "6512",
+      "username": "lisna2",
+      "email": "lisa@gmail.com",
+      "password": "Lisna@123",
+      "cart":[
+        {
+          
+        }
+      ]
+    },
+    {
+      "id": "9ba6",
+      "username": "sanu",
+      "email": "sanu@gmail.com",
+      "password": "Sanu@123",
+      "cart":[
+        {
+          
+        }
+      ]
+    },
+    {
+      "id": "acb4",
+      "username": "sha",
+      "email": "sha@gmail.com",
+      "password": "Sha@1234",
+      "cart":[
+        {
+          
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Broderie anglaise-detail ribbed top",
+      "price": 1299,
+      "colour": "cream",
+      "category": "women",
+      "image": "product1.avif"
+    },
+    {
+      "id": "2",
+      "name": "Lace-trimmed pointelle T-shirt",
+      "price": 799,
+      "colour": "white",
+      "category": "women",
+      "image": "product2.avif"
+    },
+    {
+      "id": "3",
+      "name": "Twill overshirt",
+      "price": 2699,
+      "colour": "light denim blue",
+      "category": "women",
+      "image": "product3.avif"
+    },
+    {
+      "id": "4",
+      "name": "Regular Fit Short-sleeved shirt",
+      "price": 1999,
+      "colour": "Beige",
+      "category": "men",
+      "image": "product4.avif"
+    },
+    {
+      "id": "5",
+      "name": "Relaxed Fit Trench coat",
+      "price": 7999,
+      "colour": "Beige",
+      "category": "men",
+      "image": "product5.avif"
+    },
+    {
+      "id": "6",
+      "name": "Loose Fit Textured shirt",
+      "price": 2299,
+      "colour": "Black",
+      "category": "men",
+      "image": "product6.avif"
+    },
+    {
+      "id": "7",
+      "name": "Relaxed Fit Linen trousers",
+      "price": 2999,
+      "colour": "Light beige",
+      "category": "men",
+      "image": "product7.avif"
+    },
+    {
+      "id": "8",
+      "name": "Lacing-front cotton shirt",
+      "price": 2999,
+      "colour": "white",
+      "category": "women",
+      "image": "product8.avif"
+    },
+    {
+      "id": "9",
+      "name": "Cotton denim dress",
+      "price": 1499,
+      "colour": "light denim blue",
+      "category": "kids",
+      "image": "product9.avif"
+    },
+    {
+      "id": "10",
+      "name": "Pointelle-knit cotton T-shirt",
+      "price": 799,
+      "colour": "white",
+      "category": "kids",
+      "image": "product11.avif"
+    },
+    {
+      "id": "11",
+      "name": "Cotton denim dress",
+      "price": 1499,
+      "colour": "Light yellow",
+      "category": "kids",
+      "image": "product10.avif"
+    },
+    {
+      "id": "12",
+      "name": "Printed cotton top",
+      "price": 399,
+      "colour": "Dark dusty pink/Spotted",
+      "category": "kids",
+      "image": "product12.avif"
     }
   ]
 }
