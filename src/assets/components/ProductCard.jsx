@@ -6,7 +6,7 @@ export default function ProductCard({ product }) {
   const navigator=useNavigate()
 
   return (
-    <div className="w-full max-w-xs overflow-hidden z-1" >
+    <div className="w-full max-w-xs overflow-hidden z-1 " >
       <div className="relative w-full h-80">
         <img
           src={product.image}

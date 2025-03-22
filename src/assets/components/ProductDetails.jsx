@@ -17,7 +17,7 @@ export default function ProductDetails() {
   return (
     <div className="max-w-lg mx-auto mt-10 bg-white shadow-lg rounded-lg overflow-hidden">
          <NavBar/>
-
+      <div className="mt-13">
       <img src={`/public/${getId.image}`} alt={getId.name} className="w-full h-auto max-h-96 object-scale-down" />
       <div className="p-4">
         <h2 className="text-xl font-semibold">{getId.name}</h2>
@@ -30,6 +30,7 @@ export default function ProductDetails() {
         >
           Add to Cart
         </button>
+      </div>
       </div>
     </div>
   );
