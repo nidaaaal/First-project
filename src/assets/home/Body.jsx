@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import BodyBg from "./BodyBg";
 import { Link } from "react-router-dom";
 import Banner from "./Banner";
 import PageWrapper from "../animations/Pagewrapper";
 import ScrollWrapper from "../animations/ScrollWrapper";
 import Scrollx from "../animations/Scrollx";
-const Body = () => {
+import { useProducts } from "../components/UseProduct";
+import { CartContext } from "../components/CartProvider";
 
+const Body = () => {
+  const{product}=useProducts();
+const {addToCart}=useContext(CartContext)
  
 
   return (
@@ -34,21 +38,14 @@ const Body = () => {
               <Scrollx>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {[
-            { name: "Loro Piana", desc: "Slim Fit Striped Silk", price: "900", img: "/h1.avif" },
-            { name: "White Pants", desc: "Slim Fit man pants", price: "1400", img: "/h2.avif" },
-            { name: "beige shirts and pants", desc: " Slim Fit man shirt and pants ", price: "2999", img: "/h3.jpg" },
-            { name: "Brown Bomber", desc: "Luxury unisex bomber jacket", price: "1900", img: "/h4.jpg" },
-            { name: "Striped Top", desc: "kids gray top", price: "1500", img: "/h5.avif" },
-            { name: "Grey T-shirt", desc: "Unisex grey t-shirt", price: "799", img: "/h6.jpg" }
-          ].map((item, index) => (
+         {product.slice(13,19).map((item, index) => (
             <div
               key={index}
               className="scale-90 rounded-md overflow-hidden shadow-lg hover:scale-95 transition-transform duration-300"
             >        <Scrollx>
 
               <img
-                src={item.img}
+                src={item.image}
                 alt={item.name}
                 className="w-full h-80 md:h-80 object-cover"
               />
@@ -56,10 +53,11 @@ const Body = () => {
 
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">{item.name}</h3>
-                <p className="text-gray-600 text-sm mb-4">{item.desc}</p>
+                <p className="text-gray-600 text-sm mb-4">{item.colour}</p>
                 <div className="flex justify-between items-center">
                   <p className="text-black font-bold text-lg">₹{item.price}</p>
-                  <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-400 transition-colors duration-300">
+                  <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-400 transition-colors duration-300"
+                  onClick={() => addToCart(item)}>
                     Add to Cart
                   </button>
                 </div>

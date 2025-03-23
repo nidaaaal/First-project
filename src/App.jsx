@@ -13,6 +13,7 @@ import Payment from './assets/Cart/Payment';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AnimatePresence } from "framer-motion";
+import AllProduct from './assets/Products/AllProduct';
 
 
 function App() {
@@ -49,6 +50,7 @@ function AnimatedRoutes() {
         <Route path="/men/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path='/all' element={<AllProduct/>}/>
       </Routes>
     </AnimatePresence>
   );

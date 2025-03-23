@@ -5,6 +5,7 @@ import ScrollWrapper from '../animations/ScrollWrapper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { useNavigate } from 'react-router-dom';
 
 const images = [
   '/h7.jpg', 
@@ -12,6 +13,7 @@ const images = [
 ];
 
 const Banner = () => {
+  const navigator=useNavigate();
   return (
     <ScrollWrapper>
 
@@ -39,7 +41,8 @@ const Banner = () => {
                 <p className="text-lg mt-4 font-poppins">
                   Discover the latest trends in fashion with our exclusive collection.
                 </p>
-                <button className="mt-6 px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-300 transition duration-300">
+                <button className="mt-6 px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-300 transition duration-300"
+                onClick={()=>navigator('/all')}>
                   Shop Now
                 </button>
               </div>

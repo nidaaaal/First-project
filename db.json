@@ -52,102 +52,176 @@
       "password": "Nidal@123"
     }
   ],
-  "products": [
-    {
-      "id": "1",
-      "name": "Broderie anglaise-detail ribbed top",
-      "price": 1299,
-      "colour": "cream",
-      "category": "women",
-      "image": "product1.avif"
-    },
-    {
-      "id": "2",
-      "name": "Lace-trimmed pointelle T-shirt",
-      "price": 799,
-      "colour": "white",
-      "category": "women",
-      "image": "product2.avif"
-    },
-    {
-      "id": "3",
-      "name": "Twill overshirt",
-      "price": 2699,
-      "colour": "light denim blue",
-      "category": "women",
-      "image": "product3.avif"
-    },
-    {
-      "id": "4",
-      "name": "Regular Fit Short-sleeved shirt",
-      "price": 1999,
-      "colour": "Beige",
-      "category": "men",
-      "image": "product4.avif"
-    },
-    {
-      "id": "5",
-      "name": "Relaxed Fit Trench coat",
-      "price": 7999,
-      "colour": "Beige",
-      "category": "men",
-      "image": "product5.avif"
-    },
-    {
-      "id": "6",
-      "name": "Loose Fit Textured shirt",
-      "price": 2299,
-      "colour": "Black",
-      "category": "men",
-      "image": "product6.avif"
-    },
-    {
-      "id": "7",
-      "name": "Relaxed Fit Linen trousers",
-      "price": 2999,
-      "colour": "Light beige",
-      "category": "men",
-      "image": "product7.avif"
-    },
-    {
-      "id": "8",
-      "name": "Lacing-front cotton shirt",
-      "price": 2999,
-      "colour": "white",
-      "category": "women",
-      "image": "product8.avif"
-    },
-    {
-      "id": "9",
-      "name": "Cotton denim dress",
-      "price": 1499,
-      "colour": "light denim blue",
-      "category": "kids",
-      "image": "product9.avif"
-    },
-    {
-      "id": "10",
-      "name": "Pointelle-knit cotton T-shirt",
-      "price": 799,
-      "colour": "white",
-      "category": "kids",
-      "image": "product11.avif"
-    },
-    {
-      "id": "11",
-      "name": "Cotton denim dress",
-      "price": 1499,
-      "colour": "Light yellow",
-      "category": "kids",
-      "image": "product10.avif"
-    },
-    {
-      "id": "12",
-      "name": "Printed cotton top",
-      "price": 399,
-      "colour": "Dark dusty pink/Spotted",
-      "category": "kids",
-      "image": "product12.avif"
-    }
-  ]
+ "products": [
+  {
+    "id": 1,
+    "name": "Broderie anglaise-detail ribbed top",
+    "price": 1299,
+    "colour": "cream",
+    "category": "women",
+    "image": "product1.avif",
+    "description": "A stylish ribbed top with delicate broderie anglaise details."
+  },
+  {
+    "id": 2,
+    "name": "Lace-trimmed pointelle T-shirt",
+    "price": 799,
+    "colour": "white",
+    "category": "women",
+    "image": "product2.avif",
+    "description": "A soft pointelle T-shirt featuring lace-trimmed edges for a feminine touch."
+  },
+  {
+    "id": 3,
+    "name": "Twill overshirt",
+    "price": 2699,
+    "colour": "light denim blue",
+    "category": "women",
+    "image": "product3.avif",
+    "description": "A versatile twill overshirt perfect for layering."
+  },
+  {
+    "id": 4,
+    "name": "Regular Fit Short-sleeved shirt",
+    "price": 1999,
+    "colour": "Beige",
+    "category": "men",
+    "image": "product4.avif",
+    "description": "A classic short-sleeved shirt with a regular fit for a casual look."
+  },
+  {
+    "id": 5,
+    "name": "Relaxed Fit Trench coat",
+    "price": 7999,
+    "colour": "Beige",
+    "category": "men",
+    "image": "product5.avif",
+    "description": "A timeless trench coat with a relaxed fit, ideal for any occasion."
+  },
+  {
+    "id": 6,
+    "name": "Loose Fit Textured shirt",
+    "price": 2299,
+    "colour": "Black",
+    "category": "men",
+    "image": "product6.avif",
+    "description": "A modern textured shirt with a comfortable loose fit."
+  },
+  {
+    "id": 7,
+    "name": "Relaxed Fit Linen trousers",
+    "price": 2999,
+    "colour": "Light beige",
+    "category": "men",
+    "image": "product7.avif",
+    "description": "Lightweight linen trousers designed for ultimate comfort and style."
+  },
+  {
+    "id": 8,
+    "name": "Lacing-front cotton shirt",
+    "price": 2999,
+    "colour": "white",
+    "category": "women",
+    "image": "product8.avif",
+    "description": "A cotton shirt with a unique lacing-front detail."
+  },
+  {
+    "id": 9,
+    "name": "Cotton denim dress",
+    "price": 1499,
+    "colour": "light denim blue",
+    "category": "kids",
+    "image": "product9.avif",
+    "description": "A cute and comfortable cotton denim dress for kids."
+  },
+  {
+    "id": 10,
+    "name": "Pointelle-knit cotton T-shirt",
+    "price": 799,
+    "colour": "white",
+    "category": "kids",
+    "image": "product11.avif",
+    "description": "A soft cotton T-shirt with delicate pointelle knit details."
+  },
+  {
+    "id": 11,
+    "name": "Cotton denim dress",
+    "price": 1499,
+    "colour": "Light yellow",
+    "category": "kids",
+    "image": "product10.avif",
+    "description": "A stylish and comfortable denim dress in a refreshing light yellow shade."
+  },
+  {
+    "id": 12,
+    "name": "Printed cotton top",
+    "price": 399,
+    "colour": "Dark dusty pink/Spotted",
+    "category": "kids",
+    "image": "product12.avif",
+    "description": "A fun printed cotton top with a playful spotted design."
+  },
+  {
+    "id": 13,
+    "name": "Printed cotton top",
+    "price": 399,
+    "colour": "Dark dusty pink/Spotted",
+    "category": "kids",
+    "image": "product12.avif",
+    "description": "A charming cotton top with a stylish spotted pattern."
+  },{
+    "id": 14,
+    "name": "Slim Fit Striped Silk",
+    "price": 900,
+    "colour": "Beige",
+    "category": "men",
+    "image": "h1.avif",
+    "description": "Elegant slim-fit striped silk pants for a refined look."
+  },
+  {
+    "id": 15,
+    "name": "Slim Fit Woman Pants",
+    "price": 1400,
+    "colour": "white",
+    "category": "women",
+    "image": "h2.avif",
+    "description": "Comfortable and stylish slim-fit beige pants for men."
+  },
+  {
+    "id": 16,
+    "name": "Slim Fit Man Shirt and Pants",
+    "price": 2999,
+    "colour": "white",
+    "category": "men",
+    "image": "h3.jpg",
+    "description": "A coordinated slim-fit shirt and pants set in classic beige."
+  },
+  {
+    "id": 17,
+    "name": "Brown Bomber",
+    "price": 1900,
+    "colour": "Brown",
+    "category": "men",
+    "image": "h4.jpg",
+    "description": "A luxurious unisex bomber jacket with a sleek brown finish."
+  },
+  {
+    "id": 18,
+    "name": "Striped Top",
+    "price": 1500,
+    "colour": "Gray",
+    "category": "kids",
+    "image": "h5.avif",
+    "description": "A comfortable and stylish striped gray top for kids."
+  },
+  {
+    "id": 19,
+    "name": "Grey T-shirt",
+    "price": 799,
+    "colour": "Gray",
+    "category": "women",
+    "image": "h6.jpg",
+    "description": "A soft and casual unisex grey t-shirt."
+  }
+]
 }
