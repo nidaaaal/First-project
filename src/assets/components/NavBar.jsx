@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Search from '../Products/Search'
 import { CartContext } from './CartProvider';
 import { toast } from 'react-toastify'
+import Deals from './Deals';
 export default function NavBar() {
     const navigator=useNavigate()
 
@@ -34,6 +35,8 @@ export default function NavBar() {
             navigator('/cart');
           }
         };
+
+        
       
           
 
@@ -42,18 +45,23 @@ export default function NavBar() {
 
     
   return (
-    <div className="h-15 w-full flex justify-between items-center text-xs font-bold fixed top-0 left-0 bg-white shadow-md px-5 z-10">
-      <div className="flex space-x-4">
-        <Link to="/"  className='p-3 text-black '>Home</Link>
-        <a href="nodatanow"  className='p-3 text-black '>Customer Service</a>
-        <a href="nodatanow" className="text-black p-3 ">Newsletter</a>
-        </div>
+  <div>
+    <Deals/>
+  <div className="fixed top-10 left-0 w-full flex justify-between items-center text-xs font-bold  px-5 z-40 ">
+    <div className="flex space-x-12 p-3">
+      <Link to="/" className="text-black">HOME</Link>
+       <Link to="/men" className="text-black">MEN</Link>
+       <Link to="/women" className="text-black">WOMAN</Link>
+       <Link to="/kids" className="text-black">KIDS</Link>
+          </div>
 
         <div className="flex justify-center items-center">
-        <img src="VogueVault.png" alt="H&M Logo" className="w-[90px]" />
+        <img src="/public/VogueVault.png" className="w-[90px]" />
         </div>
         
         <div className="flex items-center space-x-4">
+        <Search/>
+
         <button className="relative p-3" onClick={handleCartClick}>
           <FontAwesomeIcon icon={faCartShopping} size="xl" />
           {totalItems > 0 && (
@@ -65,9 +73,9 @@ export default function NavBar() {
                  {login===null?
       <Link to='/login' className='p-3 w-2'> <FontAwesomeIcon icon ={faUser} size="xl" style={{color: "#000000",}} /></Link>:
         <button onClick={logout} className='p-3'>LOGOUT</button>}
-        <Search/>
-
+        
        </div>
+    </div>
     </div>
   )
 }

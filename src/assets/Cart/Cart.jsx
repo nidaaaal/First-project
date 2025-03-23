@@ -1,13 +1,39 @@
-// Cart.js
 import React, { useContext } from "react";
 import { CartContext } from "../components/CartProvider";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import { toast } from "react-toastify";
 export default function Cart() {
   const { cart, removeFromCart, decreaseQuantity, addToCart } = useContext(CartContext);
   const navigator=useNavigate()
 
     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+
+    const testPayment = () => {
+      
+      const paymentResponse = {
+        paymentId: "Q9kmIRSyBF8V2u",
+        orderId: "mock_order_id",
+        signature: "mock_signature",
+      };
+
+      const orderDetails = {     
+
+        items: cart,
+        totalAmount: cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
+        paymentId: paymentResponse.paymentId,
+        orderId: paymentResponse.orderId,
+        signature: paymentResponse.signature,
+      };
+      toast.success("Mock Payment Successful!");
+    
+      console.log("Mock Payment Response:", paymentResponse);
+    
+      navigator('/payment' ,{ state: orderDetails });
+    
+    };
+
 
   return (
     <div className="p-6 max-w-2xl mx-auto">
@@ -60,8 +86,8 @@ export default function Cart() {
       {cart.length > 0 ?(
         <div className="flex-col justify-center items-center text-center">
       <h2>Checkout</h2>
-      <p>Total: ${total.toFixed(2)}</p>
-      <button onClick={()=>navigator('/payment')} className="bg-green-500 text-white px-3 py-1 rounded"> PAY NOW </button></div>):
+      <p>Total: ₹{total.toFixed(2)}</p>
+      <button onClick={testPayment} className="bg-green-500 text-white px-3 py-1 rounded"> PAY NOW </button></div>):
       <button className="bg-green-500 text-white px-3 py-1 rounded" onClick={()=>navigator('/')}>Back to home</button> }
     </div>
   

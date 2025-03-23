@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
-import { CartContext } from "./CartProvider";
+import { CartContext } from "../components/CartProvider";
 import { useNavigate } from "react-router-dom";
+import PageWrapper from "../animations/Pagewrapper";
 export default function ProductCard({ product }) {
   const { addToCart } = useContext(CartContext);
   const navigator=useNavigate()
 
   return (
-    <div className="w-full max-w-xs overflow-hidden z-1 " >
-      <div className="relative w-full h-80">
+        <PageWrapper>
+    
+    <div className="w-full max-w-xs overflow-hidden z-1 mt-10" >
+      <div className="relative w-full h-110">
         <img
           src={product.image}
           alt={product.name}
@@ -27,5 +30,7 @@ export default function ProductCard({ product }) {
         Add to Cart
       </button>
     </div>
+        </PageWrapper>
+
   );
 }

@@ -1,47 +1,57 @@
 
-import { BrowserRouter, Route, RouterProvider, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, RouterProvider, Routes ,useLocation} from 'react-router-dom'
 import UserLogin from './assets/Login/UserLogin'
 import UserRegister from './assets/Login/UserRegister'
-import Home from './assets/Login/Home'
+import Home from '../src/assets/home/Home'
 import Women from './assets/Products/Women';
 import Men from './assets/Products/Men';
 import Kids from './assets/Products/Kids';
-import ProductDetails from './assets/components/ProductDetails';
-import Cart from './assets/Cart/Cart';
 import { CartProvider } from './assets/components/CartProvider';
-import Checkout from './assets/Cart/Payment';
+import ProductDetails from './assets/Cart/ProductDetails';
+import Cart from './assets/Cart/Cart';
 import Payment from './assets/Cart/Payment';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AnimatePresence } from "framer-motion";
+
 
 function App() {
-  document.body.style.backgroundColor = "white";
+  document.body.style.backgroundColor = "#eeeeec";
 
   return (
     <>
-    <CartProvider>
-    <BrowserRouter>
-    <Routes>
-    <Route path='/' element={<Home/>}></Route>
-    <Route path='/login' element={<UserLogin/>}></Route>
-    <Route path='/register' element={<UserRegister/>}></Route>
-    <Route path='/men' element={<Men/>}></Route>
-    <Route path='/women' element={<Women/>}></Route>
-    <Route path='/kids' element={<Kids/>}></Route>
-    <Route path="/kids/:id" element={<ProductDetails />} />
-    <Route path="/women/:id" element={<ProductDetails />} />
-    <Route path="/men/:id" element={<ProductDetails />} />
-    <Route path='/cart' element={<Cart/>}> </Route>
-    <Route path="/payment" element={<Payment />} />
-    </Routes>
-    <ToastContainer />
-    </BrowserRouter>
+     <CartProvider>
+      <BrowserRouter>
+        <AnimatedRoutes />
+        <ToastContainer />
+      </BrowserRouter>
     </CartProvider>
 
   
         
     </>
   )
+}
+function AnimatedRoutes() {
+  const location = useLocation(); // ✅ Get the current location
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<UserLogin />} />
+        <Route path="/register" element={<UserRegister />} />
+        <Route path="/men" element={<Men />} />
+        <Route path="/women" element={<Women />} />
+        <Route path="/kids" element={<Kids />} />
+        <Route path="/kids/:id" element={<ProductDetails />} />
+        <Route path="/women/:id" element={<ProductDetails />} />
+        <Route path="/men/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/payment" element={<Payment />} />
+      </Routes>
+    </AnimatePresence>
+  );
 }
 
 export default App

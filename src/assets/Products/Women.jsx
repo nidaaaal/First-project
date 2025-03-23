@@ -1,6 +1,6 @@
 import React from 'react'
 import { useProducts } from '../components/UseProduct';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../Products/Women';
 import NavBar from '../components/NavBar';
 
 export default function Women() {

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { logval } from './Validations'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import NavBar from '../components/NavBar'
 
 export default function UserLogin() {
   const navigator=useNavigate();
@@ -50,8 +51,10 @@ export default function UserLogin() {
 
 
   return (
+    <div>
+    <NavBar/>
   <div className="flex min-h-screen items-center justify-center bg-gray-100">
-  <div className="w-full max-w-md bg-white p-8 shadow-lg rounded-lg">
+  <div className="w-full max-w-md bg-white p-8 shadow-lg rounded-lg mt-10">
   <h2 className='text-2xl' >Sign in</h2>
   <p >Become a member — don’t miss out on deals, offers, discounts and bonus vouchers.</p>
 
@@ -67,6 +70,7 @@ export default function UserLogin() {
     <button onClick={()=>navigator('/register')}  className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 transition">Become a Vogue Vault member</button>
     </form>
 
+    </div>
     </div>
     </div>
   )

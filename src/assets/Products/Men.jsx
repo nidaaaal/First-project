@@ -1,5 +1,5 @@
 import { useProducts } from '../components/UseProduct';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../Cart/ProductCard';
 import NavBar from '../components/NavBar';
 
 export default function Men() {

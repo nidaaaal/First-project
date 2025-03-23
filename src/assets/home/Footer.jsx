@@ -1,11 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import ScrollWrapper from "../animations/ScrollWrapper";
 
 const Footer = () => {
   return (
+     <ScrollWrapper>
     <footer className="bg-white text-black py-8">
       <div className="container mx-auto px-4">
+      <div className=" text-black text-center">
+      <p className="text-lg md:text-xl font-bold justify-center items-center">VOGUE VAULT</p>
+        <p className="text-sm text-gray-600 mt-6">Get newsletter updates for upcoming products and best discounts.</p>
+        <div className="flex flex-col md:flex-row justify-center items-center mt-2 space-y-2 md:space-y-0 md:space-x-2 mb-6">
+          <input type="email" placeholder="Your Email" className="px-4 py-2 rounded-md text-black w-full md:w-auto" />
+          <button className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg animate-glow hover:bg-blue-700 transition-colors duration-300">Submit</button>
+        </div>
+      </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
@@ -89,15 +100,10 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
-        <div className="border-t border-gray-300 mt-8 pt-8 text-center text-sm text-gray-600">
-          <p>
-            &copy; {new Date().getFullYear()} Vogue Vault. All Rights
-            Reserved.
-          </p>
-        </div>
+       
       </div>
     </footer>
+    </ScrollWrapper>
   );
 };
 
