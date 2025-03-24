@@ -14,12 +14,14 @@ export default function ProductCard({ product }) {
     <ScrollWrapper>
 
       <div className="relative w-full h-110">
+        <scrollX>
         <img
           src={product.image}
           alt={product.name}
           className="w-full h-full object-cover"
           onClick={()=>navigator(`/${product.category}/${product.id}`)}
         />
+        </scrollX>
       </div >
       <div className="p-4" onClick={()=>navigator(`/${product.category}/${product.id}`)}>
         <h3 className="text-sm font-semibold">{product.name}</h3>
@@ -27,7 +29,6 @@ export default function ProductCard({ product }) {
         <p className="text-lg font-bold mt-1">₹{product.price}</p>
 
       </div>
-      </ScrollWrapper>
 
       <button
         className="mt-3 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition"
@@ -35,6 +36,8 @@ export default function ProductCard({ product }) {
       >
         Add to Cart
       </button>
+      </ScrollWrapper>
+
     </div>
         </PageWrapper>
 

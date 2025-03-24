@@ -1,8 +1,10 @@
 import HomeBody from "./HomeBody";
+import NavBar from "./NavBar";
 
 export default function BodyContent() {
   return (
     <div className="space-y-12 p-8">
+      <NavBar/>
       <HomeBody
         image="product4.avif"
         title="Men's Fashion"

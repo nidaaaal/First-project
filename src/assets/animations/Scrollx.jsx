@@ -6,7 +6,7 @@ export default function Scrollx({ children }) {
       initial={{ opacity: 0, x: -50 }} 
       whileInView={{ opacity: 1, x: 0 }} 
       viewport={{ once: false, amount: 0.2 }} 
-      transition={{ duration: 1, ease: "easeInOut" }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
     >
       {children}
     </motion.div>

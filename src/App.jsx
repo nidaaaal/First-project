@@ -14,6 +14,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AnimatePresence } from "framer-motion";
 import AllProduct from './assets/Products/AllProduct';
+import BodyContent from './assets/components/BodyContent';
 
 
 function App() {
@@ -34,8 +35,8 @@ function App() {
   )
 }
 function AnimatedRoutes() {
-  const location = useLocation(); // ✅ Get the current location
-
+  const location = useLocation();
+  
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
@@ -51,6 +52,7 @@ function AnimatedRoutes() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/payment" element={<Payment />} />
         <Route path='/all' element={<AllProduct/>}/>
+        <Route path='/homebody' element={<BodyContent/>}/>
       </Routes>
     </AnimatePresence>
   );

@@ -1,19 +1,19 @@
 import { useFormik } from 'formik'
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { logval } from './Validations'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import NavBar from '../components/NavBar'
 
-export default function UserLogin() {
+export default function adminLogin() {
   const navigator=useNavigate();
-  const[login,setlogin]=useState(null)
+  const[admin,setAdmin]=useState(null)
   useEffect(()=>{
-  const log=localStorage.getItem('loginfo')
+  const log=localStorage.getItem('admininfo')
     setlogin(JSON.parse(log))
     if(log){
-      navigator('/')
+      navigator('/dashboard')
     }
   },[])
 
@@ -53,10 +53,10 @@ export default function UserLogin() {
   return (
     <div>
     <NavBar/>
-    <div className="flex h-screen items-center justify-center mt-10">    
-    <div className="w-1/4 flex items-center justify-center">
-    <div className="w-full max-w-md p-8 rounded-lg">
-  <h2 className='text-2xl text-center' >SIGN IN</h2>
+  <div className="flex min-h-screen items-center justify-center bg-gray-100">
+  <div className="w-full max-w-md bg-white p-8 shadow-lg rounded-lg mt-10">
+  <h2 className='text-2xl' >Sign in</h2>
+  <p >Become a member — don’t miss out on deals, offers, discounts and bonus vouchers.</p>
 
   <form onSubmit={formik.handleSubmit} className='space-y-4'>
     <label className="block text-sm font-medium text-gray-700">Email</label>
@@ -67,15 +67,11 @@ export default function UserLogin() {
     <p className='text-red-950'>{formik.errors.password}</p>
     <button type="submit"  className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 transition">Sign in</button>
     
-    <Link to='/register' className="text-sm text-center text-gray-600 mt-4 p-2">
-          Already have an account? <a className="p-2 text-black underline">Sign In</a>
-        </Link>    </form>
+    <button onClick={()=>navigator('/register')}  className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 transition">Become a Vogue Vault member</button>
+    </form>
+
     </div>
     </div>
-    <div className="w-3/4 h-full flex items-center justify-center">   
-      <img src="home3.jpg" alt="Fashion Image" className="w-full h-full object-cover" />
-      </div>
-      </div>
     </div>
   )
 }

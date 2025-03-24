@@ -19,14 +19,14 @@ export default function ProductDetails() {
   <div>
           <NavBar />
 
-    <div className=" mx-auto  bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className=" mx-auto h-full rounded-lg overflow-hidden">
   
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 mt-20">
         <div className="flex justify-center">
           <img 
             src={`/public/${getId.image}`}
             alt={getId.name} 
-            className="w-[350px] h-auto rounded-lg shadow-md" 
+            className="w-[350px] h-full rounded-lg shadow-md" 
           />
         </div>
 

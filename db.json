@@ -55,7 +55,7 @@
  "products": [
   {
     "id": 1,
-    "name": "Broderie anglaise-detail ribbed top",
+    "name": "BRODERIE ANGLAISE-DETAIL RIBBED TOP",
     "price": 1299,
     "colour": "cream",
     "category": "women",
@@ -64,7 +64,7 @@
   },
   {
     "id": 2,
-    "name": "Lace-trimmed pointelle T-shirt",
+    "name": "LACE-TRIMMED POINTELLE T-SHIRT",
     "price": 799,
     "colour": "white",
     "category": "women",
@@ -73,7 +73,7 @@
   },
   {
     "id": 3,
-    "name": "Twill overshirt",
+    "name": "TWILL OVERSHIRT",
     "price": 2699,
     "colour": "light denim blue",
     "category": "women",
@@ -82,7 +82,7 @@
   },
   {
     "id": 4,
-    "name": "Regular Fit Short-sleeved shirt",
+    "name": "REGULAR FIT SHORT-SLEEVED SHIRT",
     "price": 1999,
     "colour": "Beige",
     "category": "men",
@@ -91,7 +91,7 @@
   },
   {
     "id": 5,
-    "name": "Relaxed Fit Trench coat",
+    "name": "RELAXED FIT TRENCH COAT",
     "price": 7999,
     "colour": "Beige",
     "category": "men",
@@ -100,7 +100,7 @@
   },
   {
     "id": 6,
-    "name": "Loose Fit Textured shirt",
+    "name": "LOOSE FIT TEXTURED SHIRT",
     "price": 2299,
     "colour": "Black",
     "category": "men",
@@ -109,7 +109,7 @@
   },
   {
     "id": 7,
-    "name": "Relaxed Fit Linen trousers",
+    "name": "RELAXED FIT LINEN TROUSERS",
     "price": 2999,
     "colour": "Light beige",
     "category": "men",
@@ -118,7 +118,7 @@
   },
   {
     "id": 8,
-    "name": "Lacing-front cotton shirt",
+    "name": "LACING-FRONT COTTON SHIRT",
     "price": 2999,
     "colour": "white",
     "category": "women",
@@ -127,7 +127,7 @@
   },
   {
     "id": 9,
-    "name": "Cotton denim dress",
+    "name": "COTTON DENIM DRESS",
     "price": 1499,
     "colour": "light denim blue",
     "category": "kids",
@@ -136,7 +136,7 @@
   },
   {
     "id": 10,
-    "name": "Pointelle-knit cotton T-shirt",
+    "name": "POINTELLE-KNIT COTTON T-SHIRT",
     "price": 799,
     "colour": "white",
     "category": "kids",
@@ -145,7 +145,7 @@
   },
   {
     "id": 11,
-    "name": "Cotton denim dress",
+    "name": "COTTON DENIM DRESS",
     "price": 1499,
     "colour": "Light yellow",
     "category": "kids",
@@ -154,7 +154,7 @@
   },
   {
     "id": 12,
-    "name": "Printed cotton top",
+    "name": "PRINTED COTTON TOP",
     "price": 399,
     "colour": "Dark dusty pink/Spotted",
     "category": "kids",
@@ -163,15 +163,15 @@
   },
   {
     "id": 13,
-    "name": "Printed cotton top",
-    "price": 399,
-    "colour": "Dark dusty pink/Spotted",
+    "name": "LOOSE FIT JEANS",
+    "price": 1499,
+    "colour": "Denim blue",
     "category": "kids",
-    "image": "product12.avif",
-    "description": "A charming cotton top with a stylish spotted pattern."
+    "image": "product13.avif",
+    "description": "A zip fly with a button, and balloon legs with tapered hems.."
   },{
     "id": 14,
-    "name": "Slim Fit Striped Silk",
+    "name": "SLIM FIT STRIPED SILK",
     "price": 900,
     "colour": "Beige",
     "category": "men",
@@ -180,7 +180,7 @@
   },
   {
     "id": 15,
-    "name": "Slim Fit Woman Pants",
+    "name": "SLIM FIT WOMAN PANTS",
     "price": 1400,
     "colour": "white",
     "category": "women",
@@ -189,7 +189,7 @@
   },
   {
     "id": 16,
-    "name": "Slim Fit Man Shirt and Pants",
+    "name": "SLIM FIT MAN SHIRT AND PANTS",
     "price": 2999,
     "colour": "white",
     "category": "men",
@@ -198,7 +198,7 @@
   },
   {
     "id": 17,
-    "name": "Brown Bomber",
+    "name": "BROWN BOMBER",
     "price": 1900,
     "colour": "Brown",
     "category": "men",
@@ -207,7 +207,7 @@
   },
   {
     "id": 18,
-    "name": "Striped Top",
+    "name": "STRIPED TOP",
     "price": 1500,
     "colour": "Gray",
     "category": "kids",
@@ -216,12 +216,28 @@
   },
   {
     "id": 19,
-    "name": "Grey T-shirt",
+    "name": "GREY T-SHIRT",
     "price": 799,
     "colour": "Gray",
     "category": "women",
     "image": "h6.jpg",
-    "description": "A soft and casual unisex grey t-shirt."
+    "description": "A soft and casual grey t-shirt."
+  },
+  {
+    "id": 20,
+    "name": "TOLUS SPRING COLLECTION COMBO",
+    "price": 3999,
+    "colour": "pearl white",
+    "category": "women",
+    "image": "home2.jpg",
+    "description": "best spring collection. Offering our best quality product.."
+  }
+],
+"admin":[
+  {
+    "Admin":"nidal",
+    "email":"admin@gmail.com",
+    "password":"Admin@123"
   }
 ]
 }

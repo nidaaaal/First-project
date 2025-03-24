@@ -8,7 +8,7 @@ export default function Cart() {
   const navigator=useNavigate()
 
     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-
+  
 
     const testPayment = () => {
       
@@ -36,8 +36,10 @@ export default function Cart() {
 
 
   return (
-    <div className="p-6 max-w-2xl mx-auto">
-         <NavBar/>
+    <div>
+               <NavBar/>
+
+    <div className="p-6 max-w-2xl mx-auto mt-20">
 
       <h1 className="text-2xl font-bold mb-4">Your Cart</h1>
 
@@ -90,6 +92,7 @@ export default function Cart() {
       <button onClick={testPayment} className="bg-green-500 text-white px-3 py-1 rounded"> PAY NOW </button></div>):
       <button className="bg-green-500 text-white px-3 py-1 rounded" onClick={()=>navigator('/')}>Back to home</button> }
     </div>
-  
+    </div>
+
   );
 }

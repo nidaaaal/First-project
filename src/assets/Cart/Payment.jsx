@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from "react-router-dom";
 import { CartContext } from '../components/CartProvider';
+import NavBar from '../components/NavBar';
 
 export default function Payment() {
       const navigator=useNavigate()
@@ -20,7 +21,9 @@ export default function Payment() {
       }
     
       return (
-        <div className="p-6 max-w-2xl mx-auto">
+        <div>
+          <NavBar/>
+        <div className="p-6 max-w-2xl mx-auto m-20">
           <h1 className="text-2xl font-bold mb-4">Order Receipt</h1>
     
           <div className="mb-6">
@@ -56,7 +59,7 @@ export default function Payment() {
         </button>
         </div>
         </div>
-        
+        </div>
       );
     };
     
