@@ -7,12 +7,11 @@ import NavBar from '../components/NavBar';
 export default function Payment() {
       const navigator=useNavigate()
       const location = useLocation();
-      const{setCart}=useContext(CartContext);
+      const{cart,setCart}=useContext(CartContext);
       const orderDetails = location.state;
 
       const backtocart = () => {
         setCart([])
-        localStorage.removeItem("cart");
         navigator('/cart');}
        
     

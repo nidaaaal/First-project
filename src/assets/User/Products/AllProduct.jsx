@@ -1,22 +1,17 @@
 import React, { useContext } from 'react'
 import NavBar from '../components/NavBar';
 import { useProducts } from '../components/UseProduct';
-import { CartContext } from '../components/CartProvider';
-import Scrollx from '../animations/Scrollx';
-import { useNavigate } from 'react-router-dom';
-import ScrollWrapper from '../animations/ScrollWrapper';
 import PageWrapper from '../animations/Pagewrapper';
 import ProductCard from '../Cart/ProductCard';
+import ScrollWrapper from '../animations/ScrollWrapper';
 
 export default function AllProduct() {
     const{product}=useProducts();
-    const {addToCart}=useContext(CartContext);
-    const{navigator}=useNavigate();
     
      
   return (
     <div>
-                <NavBar />
+    <NavBar />
 
     <PageWrapper>
         <div className="container mt-30  text-center">                
@@ -32,11 +27,8 @@ export default function AllProduct() {
               key={index}
 
               className="scale-90 rounded-md overflow-hidden shadow-lg hover:scale-95 transition-transform duration-300"
-            >                 
-          
-
-             
-                          <ProductCard key={item.id} product={item}/>
+            > 
+                        <ProductCard key={item.id} product={item}/>
 
                 </div>
           ))}

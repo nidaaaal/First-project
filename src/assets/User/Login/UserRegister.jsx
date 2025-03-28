@@ -25,6 +25,8 @@ export default function UserRegister() {
         username:values.username,
         email:values.email,
         password:values.password,
+        cart:[{}],
+        whishlist:[{}],
       }
 
       try{

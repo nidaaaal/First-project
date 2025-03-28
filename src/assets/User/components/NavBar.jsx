@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser,faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from 'react-router-dom';
 import Search from '../Products/Search'
-import { CartContext } from './CartProvider';
 import { toast } from 'react-toastify'
 import Deals from './Deals';
+import { CartContext } from './CartProvider';
 export default function NavBar() {
     const navigator=useNavigate()
 
@@ -14,15 +14,14 @@ export default function NavBar() {
       const { cart,setCart } = useContext(CartContext);
     
       const logout = () => {
-        setCart([])
         localStorage.removeItem("loginfo");
-        localStorage.removeItem('cart');
         setlogin(null);
+        setCart(null)
         navigator('/login');
       };
           useEffect(()=>{
             const log=localStorage.getItem('loginfo')
-          setlogin(JSON.parse(log))
+          setlogin(log)
           console.log(log)
         },[])
 
@@ -56,7 +55,7 @@ export default function NavBar() {
           </div>
 
         <div className="flex justify-center items-center">
-        <img src="/public/VogueVault.png" className="w-[90px]" />
+        <img src="/VogueVault.png" className="w-[90px]" />
         </div>
         
         <div className="flex items-center space-x-4">

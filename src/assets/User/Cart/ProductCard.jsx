@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { CartContext } from "../components/CartProvider";
 import { useNavigate } from "react-router-dom";
 import PageWrapper from "../animations/Pagewrapper";
-import ScrollWrapper from "../animations/ScrollWrapper";
+import ScrollWrapper from "../animations/ScrollWrapper"
+import Scrollx from "../animations/Scrollx";
 export default function ProductCard({ product }) {
   const { addToCart } = useContext(CartContext);
   const navigator=useNavigate()
@@ -14,14 +15,12 @@ export default function ProductCard({ product }) {
     <ScrollWrapper>
 
       <div className="relative w-full h-110">
-        <scrollX>
         <img
           src={product.image}
           alt={product.name}
           className="w-full h-full object-cover"
           onClick={()=>navigator(`/${product.category}/${product.id}`)}
         />
-        </scrollX>
       </div >
       <div className="p-4" onClick={()=>navigator(`/${product.category}/${product.id}`)}>
         <h3 className="text-sm font-semibold">{product.name}</h3>

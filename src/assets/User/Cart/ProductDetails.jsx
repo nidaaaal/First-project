@@ -24,7 +24,7 @@ export default function ProductDetails() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 mt-20">
         <div className="flex justify-center">
           <img 
-            src={`/public/${getId.image}`}
+            src={`/${getId.image}`}
             alt={getId.name} 
             className="w-[350px] h-full rounded-lg shadow-md" 
           />

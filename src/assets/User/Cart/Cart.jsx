@@ -3,15 +3,19 @@ import { CartContext } from "../components/CartProvider";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { toast } from "react-toastify";
+import axios from "axios";
+
 export default function Cart() {
-  const { cart, removeFromCart, decreaseQuantity, addToCart } = useContext(CartContext);
+  const { cart, removeFromCart, decreaseQuantity ,setCart} = useContext(CartContext);
   const navigator=useNavigate()
+  const userId=localStorage.getItem("id")
+
 
     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  
+    const testPayment = async () => {
 
-    const testPayment = () => {
-      
+      setCart([])
+
       const paymentResponse = {
         paymentId: "Q9kmIRSyBF8V2u",
         orderId: "mock_order_id",
@@ -19,7 +23,6 @@ export default function Cart() {
       };
 
       const orderDetails = {     
-
         items: cart,
         totalAmount: cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
         paymentId: paymentResponse.paymentId,
@@ -27,17 +30,17 @@ export default function Cart() {
         signature: paymentResponse.signature,
       };
       toast.success("Mock Payment Successful!");
-    
       console.log("Mock Payment Response:", paymentResponse);
-    
-      navigator('/payment' ,{ state: orderDetails });
-    
-    };
 
+      await axios.post("http://localhost:5000/orders",(orderDetails))
+
+      navigator('/payment' ,{ state: orderDetails });
+
+    }
 
   return (
     <div>
-               <NavBar/>
+    <NavBar/>
 
     <div className="p-6 max-w-2xl mx-auto mt-20">
 
@@ -70,7 +73,7 @@ export default function Cart() {
               <span>{item.quantity}</span>
               <button
                 className="bg-gray-200 px-3 py-1 rounded"
-                onClick={() => addToCart(item)}
+                onClick={() => ADDTOCART(item)}
               >
                 +
               </button>

@@ -56,7 +56,7 @@ const {addToCart}=useContext(CartContext)
                 <p className="text-gray-600 text-sm mb-4">{item.colour}</p>
                 <div className="flex justify-between items-center">
                   <p className="text-black font-bold text-lg">₹{item.price}</p>
-                  <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-400 transition-colors duration-300"
+                  <button type="button"className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-400 transition-colors duration-300"
                   onClick={() => addToCart(item)}>
                     Add to Cart
                   </button>

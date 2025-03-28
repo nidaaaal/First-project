@@ -34,12 +34,15 @@ export default function UserLogin() {
     if(user.password!==values.password){
       toast.error("Invalid Password");
       return;
-    }
-    localStorage.setItem("loginfo",JSON.stringify(user))
+    }else if(user.blocked==true){
+      toast.error('you cannot access to this page')
+      return;
+    }else{
+    localStorage.setItem("loginfo",user.id)
     setlogin(user)
     toast.success("Login successfull");
     navigator('/')
-
+    }
 
 
   }catch(error){
@@ -53,10 +56,11 @@ export default function UserLogin() {
   return (
     <div>
     <NavBar/>
+
     <div className="flex h-screen items-center justify-center mt-10">    
     <div className="w-1/4 flex items-center justify-center">
     <div className="w-full max-w-md p-8 rounded-lg">
-  <h2 className='text-2xl text-center' >SIGN IN</h2>
+  <h2 className='text-2xl text-center'onDoubleClick={()=>navigator('/adminlogin')} >SIGN IN</h2>
 
   <form onSubmit={formik.handleSubmit} className='space-y-4'>
     <label className="block text-sm font-medium text-gray-700">Email</label>

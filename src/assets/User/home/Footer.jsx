@@ -36,7 +36,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="mb-2">
-                <Link to="/products" className="hover:text-gray-900">
+                <Link to="/all" className="hover:text-gray-900">
                   Products
                 </Link>
               </li>
@@ -46,7 +46,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="mb-2">
-                <Link to="/orders" className="hover:text-gray-900">
+                <Link to="/payment" className="hover:text-gray-900">
                   Orders
                 </Link>
               </li>
