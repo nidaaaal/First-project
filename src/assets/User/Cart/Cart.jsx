@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 export default function Cart() {
-  const { cart, removeFromCart, decreaseQuantity ,setCart} = useContext(CartContext);
+  const { cart, removeFromCart, decreaseQuantity ,setCart,addToCart} = useContext(CartContext);
   const navigator=useNavigate()
   const userId=localStorage.getItem("id")
 
@@ -73,7 +73,7 @@ export default function Cart() {
               <span>{item.quantity}</span>
               <button
                 className="bg-gray-200 px-3 py-1 rounded"
-                onClick={() => ADDTOCART(item)}
+                onClick={() => addToCart(item)}
               >
                 +
               </button>

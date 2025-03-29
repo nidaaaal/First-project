@@ -26,7 +26,7 @@ export default function AdminLogin() {
         const res = await axios.get(`http://localhost:5000/admin?email=${values.email}`);
 
         if(res.data.length===0){
-                  toast.error("No user found!");
+                  toast.error("Access denied!");
                   return;
             }
 

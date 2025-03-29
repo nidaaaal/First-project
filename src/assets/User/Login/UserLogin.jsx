@@ -10,12 +10,12 @@ export default function UserLogin() {
   const navigator=useNavigate();
   const[login,setlogin]=useState(null)
   useEffect(()=>{
-  const log=localStorage.getItem('loginfo')
-    setlogin(JSON.parse(log))
+  const log=localStorage.getItem('loginfo');
     if(log){
+      setlogin(JSON.parse(log))
       navigator('/')
     }
-  },[])
+  },[navigator])
 
 
 
@@ -46,7 +46,7 @@ export default function UserLogin() {
 
 
   }catch(error){
-    toast.error("Login failed!");
+    toast.error("Login failed! Please try again");
       }
     }
   })

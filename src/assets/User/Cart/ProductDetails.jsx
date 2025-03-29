@@ -47,7 +47,7 @@ export default function ProductDetails() {
             </div>
 
             <button
-              onClick={() => addToCart(getId)}
+              onClick={(e) =>{e.preventDefault(); addToCart(getId)}}
               className="mt-5 w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition"
             >
               Add to Cart

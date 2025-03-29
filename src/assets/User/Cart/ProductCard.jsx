@@ -3,7 +3,6 @@ import { CartContext } from "../components/CartProvider";
 import { useNavigate } from "react-router-dom";
 import PageWrapper from "../animations/Pagewrapper";
 import ScrollWrapper from "../animations/ScrollWrapper"
-import Scrollx from "../animations/Scrollx";
 export default function ProductCard({ product }) {
   const { addToCart } = useContext(CartContext);
   const navigator=useNavigate()
@@ -31,12 +30,11 @@ export default function ProductCard({ product }) {
 
       <button
         className="mt-3 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition"
-        onClick={() => addToCart(product)}
+        onClick={(e) =>{e.preventDefault() ; addToCart(product)}}
       >
         Add to Cart
       </button>
       </ScrollWrapper>
-
     </div>
         </PageWrapper>
 

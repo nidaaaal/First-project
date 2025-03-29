@@ -16,8 +16,7 @@ export default function NavBar() {
       const logout = () => {
         localStorage.removeItem("loginfo");
         setlogin(null);
-        setCart(null)
-        navigator('/login');
+        navigator("/login");
       };
           useEffect(()=>{
             const log=localStorage.getItem('loginfo')
@@ -50,7 +49,7 @@ export default function NavBar() {
     <div className="flex space-x-12 p-3">
       <Link to="/" className="text-black">HOME</Link>
        <Link to="/men" className="text-black">MEN</Link>
-       <Link to="/women" className="text-black">WOMAN</Link>
+       <Link to="/women" className="text-black">WOMEN</Link>
        <Link to="/kids" className="text-black">KIDS</Link>
           </div>
 
