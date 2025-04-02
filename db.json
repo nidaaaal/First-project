@@ -56,7 +56,7 @@
           "category": "women",
           "image": "h2.avif",
           "status": "Active",
-          "stock": 3,
+          "stock": 1,
           "description": "Comfortable and stylish slim-fit beige pants for women."
         }
       ]
@@ -95,7 +95,6 @@
       "whishlist": []
     }
   ],
-  
   "products": [
     {
       "id": "1",
@@ -193,7 +192,7 @@
       "category": "kids",
       "image": "product9.avif",
       "status": "Active",
-      "stock": 3,
+      "stock": 2,
       "description": "A cute and comfortable cotton denim dress for kids."
     },
     {
@@ -330,7 +329,6 @@
       "stock": "10"
     }
   ],
-  
   "admin": [
     {
       "id": "1",
@@ -339,7 +337,6 @@
       "password": "Admin@123"
     }
   ],
-  
   "orders": [
     {
       "id": "a3dc",
@@ -716,6 +713,61 @@
       "paymentId": "Q9kmIRSyBF8V2u",
       "orderId": "mock_order_id",
       "signature": "mock_signature"
+    },
+    {
+      "id": "ce51",
+      "items": [
+        {
+          "id": "9",
+          "name": "COTTON DENIM DRESS",
+          "price": 1499,
+          "colour": "light denim blue",
+          "category": "kids",
+          "image": "product9.avif",
+          "status": "Active",
+          "stock": 3,
+          "description": "A cute and comfortable cotton denim dress for kids.",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 1499,
+      "paymentId": "Q9kmIRSyBF8V2u",
+      "orderId": "mock_order_id",
+      "signature": "mock_signature"
+    },
+    {
+      "id": "eaa8",
+      "items": [
+        {
+          "id": "15",
+          "name": "SLIM FIT WOMAN PANTS",
+          "price": 1400,
+          "colour": "white",
+          "category": "women",
+          "image": "h2.avif",
+          "status": "Active",
+          "stock": 3,
+          "description": "Comfortable and stylish slim-fit beige pants for women.",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 1400,
+      "paymentId": "Q9kmIRSyBF8V2u",
+      "orderId": "mock_order_id",
+      "signature": "mock_signature"
+    }
+  ],
+  "subscribers": [
+    {
+      "email": "nidal@gmail.com"
+    },
+    {
+      "id": "9511",
+      "email": "jj@gmail.com"
+    },
+    {
+      "id": "2da1",
+      "email": "abd@gmail.com"
     }
   ]
 }

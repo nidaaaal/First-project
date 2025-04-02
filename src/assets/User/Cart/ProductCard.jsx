@@ -3,6 +3,7 @@ import { CartContext } from "../components/CartProvider";
 import { useNavigate } from "react-router-dom";
 import PageWrapper from "../animations/Pagewrapper";
 import ScrollWrapper from "../animations/ScrollWrapper"
+import WishlistButton from '../components/wishbutton'
 export default function ProductCard({ product }) {
   const { addToCart } = useContext(CartContext);
   const navigator=useNavigate()
@@ -20,6 +21,7 @@ export default function ProductCard({ product }) {
           className="w-full h-full object-cover"
           onClick={()=>navigator(`/${product.category}/${product.id}`)}
         />
+      <WishlistButton product={product} />
       </div >
       <div className="p-4" onClick={()=>navigator(`/${product.category}/${product.id}`)}>
         <h3 className="text-sm font-semibold">{product.name}</h3>
@@ -30,7 +32,7 @@ export default function ProductCard({ product }) {
 
       <button
         className="mt-3 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition"
-        onClick={(e) =>{e.preventDefault() ; addToCart(product)}}
+        onClick={() =>{addToCart(product)}}
       >
         Add to Cart
       </button>

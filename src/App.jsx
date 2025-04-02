@@ -14,7 +14,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AnimatePresence } from "framer-motion";
 import AllProduct from './assets/User/Products/AllProduct';
-import BodyContent from './assets/User/components/BodyContent';
 import Dashboard from './assets/Admin/Home/Dashboard';
 import AdminLogin from './assets/Admin/Login/Adminlogin';
 import ProtectedRoute from './assets/Admin/Login/ProtuctRoute';
@@ -22,6 +21,8 @@ import OrdersPage from './assets/Admin/Orders/OrderPage';
 import ProductManagement from './assets/Admin/Product/ProductManagment';
 import UsersList from './assets/Admin/Costomers/UsersList';
 import SalesDetails from './assets/Admin/Sales/SalesDetails';
+import { WishlistProvider } from './assets/User/components/wishlistprovider';
+import WishlistPage from './assets/User/components/wishlist';
 
 
 function App() {
@@ -30,10 +31,12 @@ function App() {
   return (
     <>
      <CartProvider>
+      <WishlistProvider>
       <BrowserRouter>
         <AnimatedRoutes />
         <ToastContainer />
       </BrowserRouter>
+      </WishlistProvider>
     </CartProvider>
 
   
@@ -59,13 +62,14 @@ function AnimatedRoutes() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/payment" element={<Payment />} />
         <Route path='/all' element={<AllProduct/>}/>
-        <Route path='/homebody' element={<BodyContent/>}/>
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}/>
         <Route path="/admin/orders" element={<ProtectedRoute><OrdersPage /></ProtectedRoute>}/>
         <Route path="/admin/products" element={<ProtectedRoute><ProductManagement /></ProtectedRoute>}/>
         <Route path="/admin/customers" element={<UsersList />}/>
         <Route path="/admin/sales" element={<SalesDetails />}/>
+        <Route path='/wishlist' element={<WishlistPage/>}/>
+
       </Routes>
     </AnimatePresence>
   );

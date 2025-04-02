@@ -10,13 +10,11 @@ export const CartProvider = ({ children }) => {
 
 
   useEffect(() => {
-    async function cartadd(){
     if (!id) return;
 
-  const res= await axios.get(`http://localhost:5000/users/${id}`)
-      setCart(res.data.cart || [])
-      }
-    cartadd();
+    axios.get(`http://localhost:5000/users/${id}`)
+      .then((res) => setCart(res.data.cart || []))
+      .catch((error) => console.error("Error fetching cart:", error));
   }, [id]);
 
   const addToCart = async (product) => {
@@ -40,7 +38,7 @@ export const CartProvider = ({ children }) => {
         toast.success("Item added again");
 
       } else {
-        if (productData.stock === 0) {
+        if (productData.stock < 0) {
           toast.error("Item out of stock");
           return;
         }
@@ -49,8 +47,8 @@ export const CartProvider = ({ children }) => {
 
       }
 
-      setCart([...updatedCart]);
-            if (id) {
+      setCart(updatedCart);
+      if (id) {
       await axios.patch(`http://localhost:5000/products/${product.id}`, {
         stock: productData.stock - 1
       });}

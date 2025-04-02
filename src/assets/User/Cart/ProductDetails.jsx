@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useProducts } from "../components/UseProduct";
 import { CartContext } from "../components/CartProvider";
 import NavBar from "../components/NavBar";
+import WishlistButton from "../components/wishbutton";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -28,6 +29,7 @@ export default function ProductDetails() {
             alt={getId.name} 
             className="w-[350px] h-full rounded-lg shadow-md" 
           />
+        <WishlistButton product={product} />
         </div>
 
         <div className="flex flex-col justify-between">
@@ -47,7 +49,7 @@ export default function ProductDetails() {
             </div>
 
             <button
-              onClick={(e) =>{e.preventDefault(); addToCart(getId)}}
+              onClick={() => addToCart(getId)}
               className="mt-5 w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition"
             >
               Add to Cart
