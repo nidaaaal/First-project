@@ -2,7 +2,7 @@ import React from 'react'
 import { useState,useEffect } from 'react';
 
 export default function Deals() {
-    const limit= new Date('march 31,2025').getTime();
+    const limit= new Date('april 15,2025').getTime();
 
     function control(){
     const start= Date.now();

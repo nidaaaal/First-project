@@ -10,7 +10,7 @@ export default function Kids() {
       })
   return (
     <div>
-      <div className="container mt-30 text-center">
+      <div className="container mt-30 text-center bg-gray-100">
   <h1 className="text-[40px] font-serif my-[20px]">Adorable Kids' Collection</h1>
   <p className="text-[16px] text-lg max-w-2xl mx-auto mt-4">
     Dress your little ones in style with our playful and comfortable kids' collection. 

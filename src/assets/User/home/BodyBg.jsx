@@ -16,7 +16,7 @@ const BodyBg = () => {
   const navigator = useNavigate();
   
   return (
-    <section className="relative mt-16 md:mt-28"> {/* Added margin for fixed navbar */}
+    <section className="relative mt-16 md:mt-30"> {/* Added margin for fixed navbar */}
       <Swiper
         spaceBetween={0}
         slidesPerView={1}

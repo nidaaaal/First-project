@@ -24,7 +24,6 @@ import SalesDetails from './assets/Admin/Sales/SalesDetails';
 import { WishlistProvider } from './assets/User/components/wishlistprovider';
 import WishlistPage from './assets/User/components/wishlist';
 
-
 function App() {
   document.body.style.backgroundColor = "#eeeeec";
 

@@ -22,7 +22,7 @@ export default function Payment() {
       return (
         <div>
           <NavBar/>
-        <div className="p-6 max-w-2xl mx-auto m-20">
+        <div className="p-6 max-w-2xl mx-auto md:mt-30">
           <h1 className="text-2xl font-bold mb-4">Order Receipt</h1>
     
           <div className="mb-6">
