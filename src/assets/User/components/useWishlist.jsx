@@ -20,7 +20,7 @@ export default function useWishlist() {
     }
 
     try {
-      const res = await axios.get(`https://json-server-cn80.onrender.com/7users/${id}`);
+      const res = await axios.get(`https://json-server-cn80.onrender.com/users/${id}`);
       let updatedWishlist = res.data.wishlist ? [...res.data.wishlist] : []; 
       if (isProductWishlisted(product.id)) {
         updatedWishlist = updatedWishlist.filter((item) => item.id !== product.id);
@@ -30,7 +30,7 @@ export default function useWishlist() {
         toast.success("Added to Wishlist!");
       }
 
-      await axios.patch(`https://json-server-cn80.onrender.com/${id}`, { wishlist: updatedWishlist });
+      await axios.patch(`https://json-server-cn80.onrender.com/users/${id}`, { wishlist: updatedWishlist });
 
       setWishlist(updatedWishlist);
     } catch (error) {
