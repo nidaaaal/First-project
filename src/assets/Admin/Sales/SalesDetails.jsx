@@ -17,7 +17,7 @@ const SalesDetails = () => {
       let totalSalesSum = 0;
       let totalEarningsSum = 0;
 
-      const response = await axios.get("http://localhost:5000/products");
+      const response = await axios.get("https://json-server-izra.onrender.com/products");
       const productsStock = response.data;
 
       orders.forEach((order) => {

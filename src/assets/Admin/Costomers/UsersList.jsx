@@ -13,7 +13,7 @@ const UsersList = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/users")
+    axios.get("https://json-server-izra.onrender.com/users")
       .then((res) => setUsers(res.data))
       .catch((err) => console.error("Error fetching users:", err));
   }, []);
@@ -25,7 +25,7 @@ const UsersList = () => {
       )
     );
 
-    axios.patch(`http://localhost:5000/users/${userId}`, {
+    axios.patch(`https://json-server-izra.onrender.com/users/${userId}`, {
       blocked: !users.find(user => user.id === userId).blocked,
     }).catch((err) => console.error("Error updating user:", err));
   };

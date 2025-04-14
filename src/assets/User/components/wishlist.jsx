@@ -15,7 +15,7 @@ export default function WishlistPage() {
     async function fetchWishlist() {
       if (!id) return;
       try {
-        const res = await axios.get(`http://localhost:5000/users/${id}`);
+        const res = await axios.get(`https://json-server-izra.onrender.com/${id}`);
         setWishlist(res.data.wishlist || []);
       } catch (error) {
         console.error("Error fetching wishlist:", error);
@@ -30,7 +30,7 @@ export default function WishlistPage() {
       const updatedWishlist = wishlist.filter((item) => item.id !== productId);
 
       // Update database
-      await axios.patch(`http://localhost:5000/users/${id}`, {
+      await axios.patch(`https://json-server-izra.onrender.com/${id}`, {
         wishlist: updatedWishlist,
       });
 

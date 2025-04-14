@@ -20,7 +20,7 @@ export default function useWishlist() {
     }
 
     try {
-      const res = await axios.get(`http://localhost:5000/users/${id}`);
+      const res = await axios.get(`https://json-server-izra.onrender.com/7users/${id}`);
       let updatedWishlist = res.data.wishlist ? [...res.data.wishlist] : []; 
       if (isProductWishlisted(product.id)) {
         updatedWishlist = updatedWishlist.filter((item) => item.id !== product.id);
@@ -30,7 +30,7 @@ export default function useWishlist() {
         toast.success("Added to Wishlist!");
       }
 
-      await axios.patch(`http://localhost:5000/users/${id}`, { wishlist: updatedWishlist });
+      await axios.patch(`https://json-server-izra.onrender.com/${id}`, { wishlist: updatedWishlist });
 
       setWishlist(updatedWishlist);
     } catch (error) {
