@@ -30,7 +30,7 @@ export default function WishlistPage() {
       const updatedWishlist = wishlist.filter((item) => item.id !== productId);
 
       // Update database
-      await axios.patch(`https://json-server-cn80.onrender.com/${id}`, {
+      await axios.patch(`https://json-server-cn80.onrender.com/${id}/`, {
         wishlist: updatedWishlist,
       });
 
