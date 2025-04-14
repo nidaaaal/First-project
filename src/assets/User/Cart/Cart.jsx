@@ -32,7 +32,7 @@ export default function Cart() {
       toast.success("Mock Payment Successful!");
       console.log("Mock Payment Response:", paymentResponse);
 
-      await axios.post("https://json-server-izra.onrender.com/orders",(orderDetails))
+      await axios.post("https://json-server-cn80.onrender.com/orders",(orderDetails))
 
       navigator('/payment' ,{ state: orderDetails });
 

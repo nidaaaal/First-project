@@ -10,7 +10,7 @@ export const useOrders = () => {
 
   useEffect(() => {
     axios
-      .get("https://json-server-izra.onrender.com/orders")
+      .get("https://json-server-cn80.onrender.com/orders")
       .then((res) => {
         const ordersData = res.data;
         setOrders(ordersData);

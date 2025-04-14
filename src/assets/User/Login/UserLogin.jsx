@@ -24,7 +24,7 @@ export default function UserLogin() {
     validationSchema:logval,
 
     onSubmit: async (values)=>{
-    try{const res= await axios.get(`https://json-server-izra.onrender.com/users?email=${values.email}`)
+    try{const res= await axios.get(`https://json-server-cn80.onrender.com/users?email=${values.email}`)
     if(res.data.length===0){
           toast.error("No user found!");
           return;

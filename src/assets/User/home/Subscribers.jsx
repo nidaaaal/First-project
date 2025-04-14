@@ -14,7 +14,7 @@ const Subscribers = () => {
     setMessage("");
 
     try {
-      const response = await axios.post("http://localhost:5000/subscribers", { email });
+      const response = await axios.post("https://json-server-cn80.onrender.com/subscribers", { email });
       if (response.status === 201) {
         setMessage("Thank you for subscribing!");
         setEmail("");

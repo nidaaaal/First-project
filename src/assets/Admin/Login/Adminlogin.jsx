@@ -23,7 +23,7 @@ export default function AdminLogin() {
 
     onSubmit: async (values) => {
       try {
-        const res = await axios.get(`https://json-server-izra.onrender.com/admin?email=${values.email}`);
+        const res = await axios.get(`https://json-server-cn80.onrender.com/admin?email=${values.email}`);
 
         if(res.data.length===0){
                   toast.error("Access denied!");

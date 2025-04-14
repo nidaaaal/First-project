@@ -12,7 +12,7 @@ const ProductManagement = () => {
 
   useEffect(() => {
     axios
-      .get("https://json-server-izra.onrender.com/products")
+      .get("https://json-server-cn80.onrender.com/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.error("Error fetching products:", err));
   }, []);
@@ -20,11 +20,11 @@ const ProductManagement = () => {
   const handleSaveProduct = async (product) => {
     try {
       if (editingProduct) {
-        await axios.put(`https://json-server-izra.onrender.com/products/${editingProduct.id}`, product);
+        await axios.put(`https://json-server-cn80.onrender.com/products/${editingProduct.id}`, product);
         setProducts(products.map((p) => (p.id === editingProduct.id ? product : p)));
         setEditingProduct(null);
       } else {
-        const res = await axios.post("https://json-server-izra.onrender.com/products", product);
+        const res = await axios.post("https://json-server-cn80.onrender.com/products", product);
         setProducts([...products, res.data]);
       }
     } catch (err) {
@@ -33,7 +33,7 @@ const ProductManagement = () => {
   };
 
   const toggleProductStatus = async (id, newStatus) => {
-    await axios.patch(`https://json-server-izra.onrender.com/products/${id}`, { status: newStatus });
+    await axios.patch(`https://json-server-cn80.onrender.com/products/${id}`, { status: newStatus });
     setProducts(products.map((p) => (p.id === id ? { ...p, status: newStatus } : p)));
   };
 

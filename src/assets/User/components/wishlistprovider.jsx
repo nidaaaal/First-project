@@ -13,7 +13,7 @@ export function WishlistProvider({ children }) {
     async function fetchWishlist() {
       if (!id) return;
       try {
-        const res = await axios.get(`https://json-server-izra.onrender.com/${id}`);
+        const res = await axios.get(`https://json-server-cn80.onrender.com/${id}`);
         setWishlist(res.data.wishlist || []);
       } catch (error) {
         console.error("Error fetching wishlist:", error);
@@ -30,7 +30,7 @@ export function WishlistProvider({ children }) {
     }
 
     try {
-      const res = await axios.get(`https://json-server-izra.onrender.com/${id}`);
+      const res = await axios.get(`https://json-server-cn80.onrender.com/${id}`);
       let updatedWishlist = res.data.wishlist || [];
 
       // ✅ Check if the product is already in wishlist
@@ -44,7 +44,7 @@ export function WishlistProvider({ children }) {
       }
 
       // ✅ Update wishlist in database
-      await axios.patch(`https://json-server-izra.onrender.com/${id}`, { wishlist: updatedWishlist });
+      await axios.patch(`https://json-server-cn80.onrender.com/${id}`, { wishlist: updatedWishlist });
 
       // ✅ Update state
       setWishlist(updatedWishlist);

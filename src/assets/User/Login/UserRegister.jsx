@@ -15,7 +15,7 @@ export default function UserRegister() {
     validationSchema:regval,
     onSubmit: async (values)=>{
     
-      const res = await axios.get(`https://json-server-izra.onrender.com/users?email=${values.email}`)
+      const res = await axios.get(`https://json-server-cn80.onrender.com/users?email=${values.email}`)
       if(res.data.length>0){
         toast.error('Email Already Exist!')
         return;
@@ -30,7 +30,7 @@ export default function UserRegister() {
       }
 
       try{
-        await axios.post('https://json-server-izra.onrender.com/users',user)
+        await axios.post('https://json-server-cn80.onrender.com/users',user)
         toast.success("Joining successfull")
         navigator('/login')
       }catch{

@@ -12,7 +12,7 @@ export default function Search() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    axios.get("https://json-server-izra.onrender.com/products").then((res) =>
+    axios.get("https://json-server-cn80.onrender.com/products").then((res) =>
       setProduct(res.data)
     );
   }, []);

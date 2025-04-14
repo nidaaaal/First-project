@@ -18,7 +18,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchUserCount = async () => {
       try {
-        const response = await axios.get("https://json-server-izra.onrender.com/users"); 
+        const response = await axios.get("https://json-server-cn80.onrender.com/users"); 
         setUserCount(response.data.length); 
       } catch (error) {
         console.error("Error fetching user count:", error);
@@ -27,7 +27,7 @@ const Dashboard = () => {
 
     const fetchOutOfStockCount = async () => {
       try {
-        const response = await axios.get("https://json-server-izra.onrender.com/products");
+        const response = await axios.get("https://json-server-cn80.onrender.com/products");
         const productsStock = response.data;
         const outOfStock = productsStock.filter(product => product.stock === 0).length;
         setOutOfStockCount(outOfStock);
