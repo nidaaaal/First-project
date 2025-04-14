@@ -13,7 +13,7 @@ export function WishlistProvider({ children }) {
     async function fetchWishlist() {
       if (!id) return;
       try {
-        const res = await axios.get(`https://json-server-cn80.onrender.com/${id}`);
+        const res = await axios.get(`https://json-server-cn80.onrender.com/users/${id}`);
         setWishlist(res.data.wishlist || []);
       } catch (error) {
         console.error("Error fetching wishlist:", error);
@@ -22,7 +22,7 @@ export function WishlistProvider({ children }) {
     fetchWishlist();
   }, [id]);
 
-  // ✅ Function to toggle wishlist item (Add/Remove)
+  // ✅ Toggle wishlist (Add/Remove) - Improved duplicate prevention
   const toggleWishlist = async (product) => {
     if (!id) {
       toast.error("You must be logged in to use the wishlist!");
@@ -30,23 +30,28 @@ export function WishlistProvider({ children }) {
     }
 
     try {
-      const res = await axios.get(`https://json-server-cn80.onrender.com/${id}`);
+      const res = await axios.get(`https://json-server-cn80.onrender.com/users/${id}`);
       let updatedWishlist = res.data.wishlist || [];
 
-      // ✅ Check if the product is already in wishlist
-      const exists = updatedWishlist.some((item) => item.id === product.id);
-      if (exists) {
+      // More robust duplicate check
+      const productIndex = updatedWishlist.findIndex((item) => item.id === product.id);
+      
+      if (productIndex !== -1) {
+        // Remove if exists
         updatedWishlist = updatedWishlist.filter((item) => item.id !== product.id);
         toast.info("Removed from Wishlist");
       } else {
-        updatedWishlist.push(product);
-        toast.success("Added to Wishlist!");
+        // Add if doesn't exist (with additional check just to be safe)
+        if (!updatedWishlist.some(item => item.id === product.id)) {
+          updatedWishlist = [...updatedWishlist, product];
+          toast.success("Added to Wishlist!");
+        }
       }
 
-      // ✅ Update wishlist in database
-      await axios.patch(`https://json-server-cn80.onrender.com/${id}`, { wishlist: updatedWishlist });
+      await axios.patch(`https://json-server-cn80.onrender.com/users/${id}`, {
+        wishlist: updatedWishlist,
+      });
 
-      // ✅ Update state
       setWishlist(updatedWishlist);
     } catch (error) {
       console.error("Error updating wishlist:", error);
@@ -55,7 +60,9 @@ export function WishlistProvider({ children }) {
   };
 
   return (
-    <WishlistContext.Provider value={{ wishlist, setWishlist, toggleWishlist }}>
+    <WishlistContext.Provider
+      value={{ wishlist, setWishlist, toggleWishlist }}
+    >
       {children}
     </WishlistContext.Provider>
   );
