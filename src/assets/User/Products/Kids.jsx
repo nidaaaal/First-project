@@ -10,6 +10,7 @@ export default function Kids() {
       })
   return (
     <div>
+    <NavBar/>
       <div className="container mt-30 text-center bg-gray-100">
   <h1 className="text-[40px] font-serif my-[20px]">Adorable Kids' Collection</h1>
   <p className="text-[16px] text-lg max-w-2xl mx-auto mt-4">
@@ -19,7 +20,6 @@ export default function Kids() {
 </div>
 
     <div className=" bg-gray-100 ">
-                  <NavBar/>
             <h1 className='text-center'>Kids' Fashion</h1>
             <div className="container mx-auto p-4 pt-20">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

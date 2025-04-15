@@ -8,6 +8,8 @@ export default function Men() {
       return  x.category==="men";
     })
   return (<div>
+                <NavBar/>
+
     <div className="container mt-30 text-center bg-gray-100">
   <h1 className="text-[40px] font-serif my-[20px]">Classic Men's Collection</h1>
   <p className="text-[16px] text-lg max-w-2xl mx-auto mt-4">
@@ -17,7 +19,6 @@ export default function Men() {
 </div>
 
 <div className="min-h-screen bg-gray-100">
-            <NavBar/>
             <div className="container mx-auto p-4 pt-20">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">     
            {category.map((item)=>(

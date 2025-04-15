@@ -10,7 +10,7 @@ import { CartProvider } from './assets/User/components/CartProvider';
 import ProductDetails from './assets/User/Cart/ProductDetails';
 import Cart from './assets/User/Cart/Cart';
 import Payment from './assets/User/Cart/Payment';
-import { ToastContainer } from "react-toastify";
+import { ToastContainer,Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AnimatePresence } from "framer-motion";
 import AllProduct from './assets/User/Products/AllProduct';
@@ -24,6 +24,7 @@ import SalesDetails from './assets/Admin/Sales/SalesDetails';
 import { WishlistProvider } from './assets/User/components/wishlistprovider';
 import WishlistPage from './assets/User/components/wishlist';
 
+
 function App() {
   document.body.style.backgroundColor = "#eeeeec";
 
@@ -33,7 +34,17 @@ function App() {
       <WishlistProvider>
       <BrowserRouter>
         <AnimatedRoutes />
-        <ToastContainer />
+        <ToastContainer
+        position="bottom-center"
+        autoClose={2000} // 2 seconds
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+        pauseOnFocusLoss
+        transition={Slide}
+      />
       </BrowserRouter>
       </WishlistProvider>
     </CartProvider>

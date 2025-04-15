@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { FaShoppingCart, FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
+import NavBar from "./NavBar";
 
 export default function WishlistPage() {
   const { wishlist, setWishlist } = useContext(WishlistContext);
@@ -62,6 +63,7 @@ export default function WishlistPage() {
   };
 
   return (
+    <div>    <NavBar/>
     <div className="container mx-auto px-4 py-8 min-h-screen">
       <h2 className="text-2xl font-bold mb-6">Your Wishlist</h2>
 
@@ -123,5 +125,7 @@ export default function WishlistPage() {
         </div>
       )}
     </div>
+    </div>
+
   );
 }

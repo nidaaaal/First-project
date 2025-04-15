@@ -1,79 +1,169 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { regval } from './Validations'
 import { useFormik } from 'formik'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import NavBar from '../components/NavBar'
+
 export default function UserRegister() {
- 
-  const navigator=useNavigate()
- 
-  
-  const formik=useFormik({
-    initialValues:{username:"",email:"",password:"",confirmpassword:""},
-    validationSchema:regval,
-    onSubmit: async (values)=>{
-    
-      const res = await axios.get(`https://json-server-cn80.onrender.com/users?email=${values.email}`)
-      if(res.data.length>0){
-        toast.error('Email Already Exist!')
-        return;
-      }
+  const navigate = useNavigate()
 
-      const user={
-        username:values.username,
-        email:values.email,
-        password:values.password,
-        cart:[{}],
-        whishlist:[{}],
-      }
+  const formik = useFormik({
+    initialValues: { username: "", email: "", password: "", confirmpassword: "" },
+    validationSchema: regval,
+    onSubmit: async (values) => {
+      try {
+        const res = await axios.get(`https://json-server-cn80.onrender.com/users?email=${values.email}`)
+        if (res.data.length > 0) {
+          toast.error('Email Already Exists!')
+          return
+        }
 
-      try{
-        await axios.post('https://json-server-cn80.onrender.com/users',user)
-        toast.success("Joining successfull")
-        navigator('/login')
-      }catch{
-        console.error('Joining failed');
-      }
+        const user = {
+          username: values.username,
+          email: values.email,
+          password: values.password,
+          cart: [{}],
+          whishlist: [{}],
+        }
 
+        await axios.post('https://json-server-cn80.onrender.com/users', user)
+        toast.success("Registration successful!")
+        navigate('/login')
+      } catch (err) {
+        console.error('Registration failed:', err)
+        toast.error('Something went wrong')
+      }
     }
-      
   })
 
   return (
-    <div>
-      <NavBar/>
-      <div className="flex h-screen items-center justify-center mt-10"> 
-      <div className="w-3/4 h-full flex items-center justify-center">   
-      <img src="home3.jpg" alt="Fashion Image" className="w-full h-full object-cover" />
+    <div className="min-h-screen flex flex-col">
+      <NavBar />
+
+      {/* Background container */}
+      <div
+        className="flex-grow bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{ backgroundImage: "url('/home3.jpg')" }}
+      >
+        {/* Centered card */}
+        <div className="flex items-center justify-center min-h-screen pt-[120px] pb-8 px-4 md:pt-[140px]">
+        <div className="w-full max-w-md backdrop-blur-sm bg-white/90 p-8 rounded-xl shadow-lg border border-white/20">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-gray-900">Create Account</h1>
+              <p className="mt-2 text-gray-600">Join us and start shopping</p>
+            </div>
+
+            <form onSubmit={formik.handleSubmit} className="space-y-6">
+              {/* Username */}
+              <div>
+                <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
+                  Name
+                </label>
+                <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  className={`w-full px-4 py-3 rounded-lg border ${
+                    formik.touched.username && formik.errors.username
+                      ? 'border-red-500 focus:ring-red-500'
+                      : 'border-gray-300 focus:ring-black'
+                  } focus:outline-none focus:ring-2`}
+                  placeholder="John Doe"
+                  {...formik.getFieldProps('username')}
+                />
+                {formik.touched.username && formik.errors.username && (
+                  <p className="mt-1 text-sm text-red-600">{formik.errors.username}</p>
+                )}
+              </div>
+
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  className={`w-full px-4 py-3 rounded-lg border ${
+                    formik.touched.email && formik.errors.email
+                      ? 'border-red-500 focus:ring-red-500'
+                      : 'border-gray-300 focus:ring-black'
+                  } focus:outline-none focus:ring-2`}
+                  placeholder="your@email.com"
+                  {...formik.getFieldProps('email')}
+                />
+                {formik.touched.email && formik.errors.email && (
+                  <p className="mt-1 text-sm text-red-600">{formik.errors.email}</p>
+                )}
+              </div>
+
+              {/* Password */}
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                  Password
+                </label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  className={`w-full px-4 py-3 rounded-lg border ${
+                    formik.touched.password && formik.errors.password
+                      ? 'border-red-500 focus:ring-red-500'
+                      : 'border-gray-300 focus:ring-black'
+                  } focus:outline-none focus:ring-2`}
+                  placeholder="••••••••"
+                  {...formik.getFieldProps('password')}
+                />
+                {formik.touched.password && formik.errors.password && (
+                  <p className="mt-1 text-sm text-red-600">{formik.errors.password}</p>
+                )}
+              </div>
+
+              {/* Confirm Password */}
+              <div>
+                <label htmlFor="confirmpassword" className="block text-sm font-medium text-gray-700 mb-1">
+                  Confirm Password
+                </label>
+                <input
+                  id="confirmpassword"
+                  name="confirmpassword"
+                  type="password"
+                  className={`w-full px-4 py-3 rounded-lg border ${
+                    formik.touched.confirmpassword && formik.errors.confirmpassword
+                      ? 'border-red-500 focus:ring-red-500'
+                      : 'border-gray-300 focus:ring-black'
+                  } focus:outline-none focus:ring-2`}
+                  placeholder="••••••••"
+                  {...formik.getFieldProps('confirmpassword')}
+                />
+                {formik.touched.confirmpassword && formik.errors.confirmpassword && (
+                  <p className="mt-1 text-sm text-red-600">{formik.errors.confirmpassword}</p>
+                )}
+              </div>
+
+              {/* Submit button */}
+              <div>
+                <button
+                  type="submit"
+                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-colors"
+                >
+                  Sign Up
+                </button>
+              </div>
+            </form>
+
+            <div className="mt-6 text-center text-sm text-gray-600">
+              Already have an account?{' '}
+              <Link to="/login" className="font-medium text-black hover:text-gray-700">
+                Sign In
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="w-1/4 flex items-center justify-center ">
-      <div className="w-full max-w-md p-8 rounded-lg">
-            <h2 className='text-2xl text-center'>SIGN UP</h2>
-
-    <form onSubmit={formik.handleSubmit} >
-      <label className=" p-2 block text-sm font-medium text-gray-700">Name</label>
-      <input type="text" className="p-2 mt-1 w-full border px-3 py-2 rounded-md focus:ring-black focus:border-black"  {...formik.getFieldProps('username') }/>
-      <p  className='p-2 text-red-950'>{formik.errors.username}</p>
-      <label className="p-2 block text-sm font-medium text-gray-700">Email</label>
-      <input type="email" className="p-2 mt-1 w-full border px-3 py-2 rounded-md focus:ring-black focus:border-black" {...formik.getFieldProps('email')} />
-
-      <p  className='text-red-950 p-2'>{formik.errors.email}</p>
-      <label className="block text-sm p-2 font-medium text-gray-700">Password</label>
-      <input type="password"  className="p-2 mt-1 w-full border px-3 py-2 rounded-md focus:ring-black focus:border-black" {...formik.getFieldProps('password')}/>
-      <p  className='text-red-950 p-2'>{formik.errors.password}</p>
-      <label className="block text-sm p-2 font-medium text-gray-700">Confirm Password</label>
-      <input type="password"  className="p-2 mt-1 w-full border px-3 py-2 rounded-md focus:ring-black focus:border-black" {...formik.getFieldProps('confirmpassword')}/>
-      <p className='text-red-950 p-2'>{formik.errors.confirmpassword}</p>
-      <button type="submit" className="w-full bg-black p-2 text-white py-2 rounded-md hover:bg-gray-800 transition">Become a member</button>
-      </form>
-      <Link to='/login' className="text-sm text-center text-gray-600 mt-4 p-2">
-          Already have an account? <a className="p-2 text-black underline">Sign In</a>
-        </Link>
-    </div>
-    </div>
-    </div>
     </div>
   )
 }
