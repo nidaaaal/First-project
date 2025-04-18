@@ -29,7 +29,7 @@ const OrdersPage = () => {
                     {[...uniqueItems.values()].map((item) => (
                       <div key={item.id} className="flex justify-between py-2 border-b">
                         <span>
-                          <img src={`/public/${item.image}`} alt={item.name} className="w-10 h-10 object-cover" />
+                          <img src={`/${item.image}`} alt={item.name} className="w-10 h-10 object-cover" />
                         </span>
                         <span>{item.name}</span>
                         <span className="text-gray-500">₹{item.price}</span>
