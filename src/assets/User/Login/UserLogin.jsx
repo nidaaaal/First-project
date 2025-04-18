@@ -41,6 +41,7 @@ export default function UserLogin() {
           return
         } else {
           localStorage.setItem("loginfo", user.id)
+          localStorage.setItem("userEmail",user.email)
           setLogin(user)
           toast.success("Login successful!")
           navigator('/')

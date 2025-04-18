@@ -134,9 +134,56 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const clearCart = async () => {
+    try {
+      const userId=localStorage.getItem("loginfo")
+      // Restore all products' stock quantities
+      if (userId) {
+        await Promise.all(
+          cart.map(item => 
+            axios.patch(`https://json-server-cn80.onrender.com/products/${item.id}`, {
+              stock: item.stock + item.quantity
+            })
+          )
+        );
+        
+        // Clear cart on server
+        await axios.patch(`https://json-server-cn80.onrender.com/users/${userId}`, {
+          cart: []
+        });
+      }
+
+      // Clear local cart state
+      setCart([]);
+    } catch (error) {
+      toast.error("Failed to clear cart");
+      console.error("Clear cart error:", error);
+    }
+  };
+
+  const updateOrderStatus = async (orderId, newStatus) => {
+    try {
+      await axios.patch(
+        `https://json-server-cn80.onrender.com/orders/${orderId}`,
+        { status: newStatus }
+      );
+
+      // Update local state
+      setOrders(prev => 
+        prev.map(order => 
+          order.id === orderId ? { ...order, status: newStatus } : order
+        )
+      );
+
+      toast.success(`Order status updated to ${newStatus}`);
+    } catch (error) {
+      toast.error("Failed to update status");
+      console.error("Status error:", error);
+    }
+  };
   return (
     <CartContext.Provider
-      value={{ cart, setCart, addToCart, removeFromCart, decreaseQuantity }}
+      value={{ cart, setCart, addToCart, removeFromCart, decreaseQuantity,updateOrderStatus,clearCart }}
     >
       {children}
     </CartContext.Provider>

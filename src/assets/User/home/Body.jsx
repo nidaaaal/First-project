@@ -41,29 +41,31 @@ const Body = () => {
           </ScrollWrapper>
 
           <Scrollx>
-            {isLoading ? (
-              <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-                {[...Array(6)].map((_, index) => (
-                  <div key={index} className="scale-90 rounded-md overflow-hidden shadow-lg bg-white">
-                    <div className="w-full h-64 sm:h-72 md:h-80 bg-gray-200 animate-pulse">
-                      <div className="h-full flex items-center justify-center">
-                        <Loading size="small" />
-                      </div>
+            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+              {isLoading ? (
+                // Enhanced loading skeleton
+                [...Array(6)].map((_, index) => (
+                  <div 
+                    key={index} 
+                    className="scale-90 rounded-md overflow-hidden shadow-lg bg-white animate-pulse"
+                  >
+                    <div className="relative">
+                      <div className="w-full h-64 sm:h-72 md:h-80 bg-gray-200"></div>
+                      {/* Wishlist button placeholder */}
+                      <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-gray-300"></div>
                     </div>
                     <div className="p-4 sm:p-6 space-y-3">
-                      <div className="h-5 bg-gray-200 rounded w-3/4 animate-pulse"></div>
-                      <div className="h-4 bg-gray-200 rounded w-1/2 animate-pulse"></div>
+                      <div className="h-5 bg-gray-200 rounded w-3/4"></div>
+                      <div className="h-4 bg-gray-200 rounded w-1/2"></div>
                       <div className="flex justify-between items-center pt-4">
-                        <div className="h-6 bg-gray-200 rounded w-1/4 animate-pulse"></div>
-                        <div className="h-8 bg-gray-200 rounded w-1/3 animate-pulse"></div>
+                        <div className="h-6 bg-gray-200 rounded w-1/4"></div>
+                        <div className="h-8 bg-gray-200 rounded w-1/3"></div>
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-                {product.slice(13, 19).map((item) => (
+                ))
+              ) : (
+                product.slice(13, 19).map((item) => (
                   <div
                     key={item.id}
                     className="scale-90 rounded-md overflow-hidden shadow-lg hover:scale-95 transition-transform duration-300 bg-white cursor-pointer"
@@ -106,9 +108,9 @@ const Body = () => {
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            )}
+                ))
+              )}
+            </div>
           </Scrollx>
         </section>
 
@@ -140,28 +142,34 @@ const Body = () => {
                     className="relative block group rounded-lg overflow-hidden cursor-pointer"
                     onClick={() => navigate(`/${category}`)}
                   >
-                    <img
-                      src={imageMap[category]}
-                      alt={titleMap[category]}
-                      className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
-                    />
-                    {/* Mobile text - always visible on small screens */}
-                    <div className="sm:hidden absolute inset-0  bg-opacity-30 flex flex-col items-center justify-center rounded-lg">
-                      <h2 className="text-white text-xl font-bold">{titleMap[category]}</h2>
-                    </div>
-                    {/* Desktop hover effect - hidden on mobile */}
-                    <div className="hidden sm:flex absolute inset-0  bg-opacity-40 flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
-                      <h2 className="text-white text-xl sm:text-2xl font-bold">{titleMap[category]}</h2>
-                      <button 
-                        className="mt-2 sm:mt-3 px-3 py-1 sm:px-4 sm:py-2 text-white font-semibold rounded-lg hover:bg-[#8aa510bb] transition duration-300 text-sm sm:text-base"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          navigate(`/${category}`);
-                        }}
-                      >
-                        Shop Now
-                      </button>
-                    </div>
+                    {isLoading ? (
+                      <div className="w-full h-48 sm:h-56 md:h-64 bg-gray-200 animate-pulse rounded-lg"></div>
+                    ) : (
+                      <>
+                        <img
+                          src={imageMap[category]}
+                          alt={titleMap[category]}
+                          className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
+                        />
+                        {/* Mobile text - always visible on small screens */}
+                        <div className="sm:hidden absolute inset-0 bg-opacity-30 flex flex-col items-center justify-center rounded-lg">
+                          <h2 className="text-white text-xl font-bold">{titleMap[category]}</h2>
+                        </div>
+                        {/* Desktop hover effect - hidden on mobile */}
+                        <div className="hidden sm:flex absolute inset-0 bg-opacity-40 flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                          <h2 className="text-white text-xl sm:text-2xl font-bold">{titleMap[category]}</h2>
+                          <button 
+                            className="mt-2 sm:mt-3 px-3 py-1 sm:px-4 sm:py-2 text-white font-semibold rounded-lg hover:bg-[#8aa510bb] transition duration-300 text-sm sm:text-base"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              navigate(`/${category}`);
+                            }}
+                          >
+                            Shop Now
+                          </button>
+                        </div>
+                      </>
+                    )}
                   </div>
                 );
               })}

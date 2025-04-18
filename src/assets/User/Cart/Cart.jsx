@@ -13,28 +13,8 @@ export default function Cart() {
 
     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
     const testPayment = async () => {
+      navigator('/checkoutform')
 
-      setCart([])
-
-      const paymentResponse = {
-        paymentId: "Q9kmIRSyBF8V2u",
-        orderId: "mock_order_id",
-        signature: "mock_signature",
-      };
-
-      const orderDetails = {     
-        items: cart,
-        totalAmount: cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
-        paymentId: paymentResponse.paymentId,
-        orderId: paymentResponse.orderId,
-        signature: paymentResponse.signature,
-      };
-      toast.success("Mock Payment Successful!");
-      console.log("Mock Payment Response:", paymentResponse);
-
-      await axios.post("https://json-server-cn80.onrender.com/orders",(orderDetails))
-
-      navigator('/payment' ,{ state: orderDetails });
 
     }
 
@@ -92,7 +72,7 @@ export default function Cart() {
         <div className="flex-col justify-center items-center text-center">
       <h2>Checkout</h2>
       <p>Total: ₹{total.toFixed(2)}</p>
-      <button onClick={testPayment} className="bg-green-500 text-white px-3 py-1 rounded"> PAY NOW </button></div>):
+      <button onClick={testPayment} className="bg-green-500 text-white px-3 py-1 rounded"> BUY NOW </button></div>):
       <button className="bg-green-500 text-white px-3 py-1 rounded" onClick={()=>navigator('/')}>Back to home</button> }
     </div>
     </div>

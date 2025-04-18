@@ -9,7 +9,6 @@ import Kids from './assets/User/Products/Kids';
 import { CartProvider } from './assets/User/components/CartProvider';
 import ProductDetails from './assets/User/Cart/ProductDetails';
 import Cart from './assets/User/Cart/Cart';
-import Payment from './assets/User/Cart/Payment';
 import { ToastContainer,Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AnimatePresence } from "framer-motion";
@@ -23,6 +22,9 @@ import UsersList from './assets/Admin/Costomers/UsersList';
 import SalesDetails from './assets/Admin/Sales/SalesDetails';
 import { WishlistProvider } from './assets/User/components/wishlistprovider';
 import WishlistPage from './assets/User/components/wishlist';
+import NotFound from './assets/User/components/NotFound';
+import CheckoutForm from './assets/User/payment/checkoutform';
+import OrderConfirmation from './assets/User/payment/confirmationpage';
 
 
 function App() {
@@ -70,7 +72,6 @@ function AnimatedRoutes() {
         <Route path="/women/:id" element={<ProductDetails />} />
         <Route path="/men/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/payment" element={<Payment />} />
         <Route path='/all' element={<AllProduct/>}/>
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}/>
@@ -79,6 +80,10 @@ function AnimatedRoutes() {
         <Route path="/admin/customers" element={<UsersList />}/>
         <Route path="/admin/sales" element={<SalesDetails />}/>
         <Route path='/wishlist' element={<WishlistPage/>}/>
+        <Route path='/checkoutform' element={<CheckoutForm/>}/>
+        <Route path="/confirmation" element={<OrderConfirmation />} />
+        <Route path="*" element={<NotFound />} />
+
 
       </Routes>
     </AnimatePresence>
