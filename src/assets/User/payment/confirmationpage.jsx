@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../components/CartProvider';
 import { useLocation } from 'react-router-dom';
+import NavBar from "../components/NavBar"
 
 const OrderConfirmation = () => {
   // Get data from Redux store
@@ -51,6 +52,7 @@ const OrderConfirmation = () => {
   };
 
   return (
+    <div><NavBar/>
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
       {/* Order Confirmation Header */}
       <div className="text-center mb-8">
@@ -151,6 +153,7 @@ const OrderConfirmation = () => {
           Need help? <a href="/contact" className="text-blue-600 hover:underline">Contact us</a>
         </p>
       </div>
+    </div>
     </div>
   );
 };
